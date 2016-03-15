@@ -20,7 +20,6 @@ export default Ember.Component.extend({
     handleFiles(evt) {
       let files = evt.target.files;
       if (files.length > 0) {
-        // this.send('onFileSelect', evt.target.files;)
         console.log("What do we do now?");
       }
     }
