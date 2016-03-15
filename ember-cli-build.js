@@ -39,5 +39,12 @@ module.exports = function(defaults) {
     destDir: 'assets'
   });
 
+  app.import('bower_components/bootstrap/js/dist/util.js');
+  app.import('bower_components/bootstrap/js/dist/util.js.map');
+  // app.import('bower_components/bootstrap/js/dist/button.js');
+  // app.import('bower_components/bootstrap/js/dist/button.js.map');
+  app.import('bower_components/bootstrap/js/dist/dropdown.js');
+  app.import('bower_components/bootstrap/js/dist/dropdown.js.map');
+
   return app.toTree();
 };
