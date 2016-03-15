@@ -1,0 +1,39 @@
+.asset-list {
+  .asset-list-item {
+    border-top: 1px solid #E9E9E9;
+    margin: 0;
+    &:last-child {
+      border-bottom: 1px solid #E9E9E9;
+    }
+    &:hover {
+      background: #fafafa;
+      .action-list {
+        opacity: 1;
+        a {
+          color: #1B7DB3;
+        }
+      }
+    }
+    .media-body {
+      font-size: 0.9em !important;
+      .media-heading {
+        color: #000;
+      }
+      .list-inline {
+        color: #797979 !important;
+      }
+    }
+    .action-list {
+      opacity: 0.4;
+      a {
+        color: #666;
+      }
+    }
+    .item-meta-list {
+      .list-inline-item {
+        color: #797979;
+        font-size: 0.9em;
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<div class="media-left">
+  <a href="#">
+    <img class="media-object" src="{{p.thumbUrl}}" alt="{{p.filename}}">
+  </a>
+</div>
+<div class="media-body">
+  <ul class="list-linline pull-xs-right action-list">
+    <li class="list-inline-item"><a href="#">Share</a></li>
+    <li class="list-inline-item">
+      <button type="button" name="button" class="btn btn-box-default btn-tiny">More</button>
+    </li>
+    <li class="list-inline-item">
+      <div class="checkbox">
+        <label class="p-t-xs">
+          <input type="checkbox">
+        </label>
+      </div>
+    </li>
+  </ul>
+  <div class="media-heading">
+    <b>{{p.filename}}</b>
+  </div>
+  <ul class="list-linline item-meta-list p-l-0">
+    <li class="list-inline-item">Uploaded today by <a href="#">{{p.ownerName}}</a></li>
+    <li class="list-inline-item">{{p.fileSize.humanReadable}}</li>
+  </ul>
+</div>
