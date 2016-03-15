@@ -11,14 +11,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{uploader-form}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#uploader-form}}
-      template block text
-    {{/uploader-form}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), "You haven't selected any files!");
 });

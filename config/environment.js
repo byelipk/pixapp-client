@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'pix-client',
+    podModulePrefix: 'pix-client/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
