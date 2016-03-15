@@ -41,7 +41,7 @@ export default Ember.Component.extend({
   },
 
   sendAjax() {
-    let form = document.querySelector("#upload-form")
+    let form = document.querySelector("#upload-form");
     let fd   = new FormData(form);
     let f    = this.get('selectedFile');
 
