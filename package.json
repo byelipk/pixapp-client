@@ -41,6 +41,8 @@
     "ember-href-to": "1.0.0",
     "ember-load-initializers": "^0.5.0",
     "ember-resolver": "^2.0.3",
+    "liquid-fire": "0.23.0",
+    "liquid-tether": "0.1.11",
     "loader.js": "^4.0.0"
   }
 }
