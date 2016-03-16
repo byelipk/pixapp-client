@@ -1,0 +1,24 @@
+<div class="container">
+  <a {{action "togglePopover"}} class="subnav-control" href="#">
+    All Files <span id="folder-tree" class="octicon octicon-triangle-down"></span>
+  </a>
+</div>
+
+{{#if showPopover}}
+  {{#liquid-tether
+      to="folder-tree"
+      target="#folder-tree"
+      attachment="top left"
+      targetAttachment="bottom right"}}
+
+    <div class="bubble z-depth-1">
+      <header class="bubble-header">
+        How are you?
+      </header>
+      <section class="bubble-body">
+        Oh yeah
+      </section>
+    </div>
+
+  {{/liquid-tether}}
+{{/if}}
