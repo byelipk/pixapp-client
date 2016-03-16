@@ -1,0 +1,46 @@
+<div class="modal-header">
+  <h5 class="modal-title text-xs-center">Upload Files</h5>
+</div>
+
+<div class="modal-body">
+  <form enctype="multipart/form-data">
+    <strong>Selected Files:</strong>
+    <div class="file-payload m-b-1">
+      <ul class="media-list file-list">
+        {{#each selectedFiles as |f|}}
+        <li class="media">
+          <span class="pull-xs-right text-muted">&times;</span>
+          <div class="media-left">
+            <span class="octicon octicon-file-text text-muted"></span>
+          </div>
+          <div class="media-body">
+            <p class="media-heading">{{f.name}}</p>
+            <ul class="list-inline">
+              <li class="list-inline-item"><a href="#">Add Description</a></li>
+            </ul>
+          </div>
+        </li>
+        {{/each}}
+
+        <li class="media">
+          <div class="media-left">
+            <span class="octicon octicon-plus text-muted"></span>
+          </div>
+          <div class="media-body">
+            <a href="#">Select file</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <strong>Upload To:</strong>
+    <div class="folder-select">
+      <button type="button" class="btn btn-sm btn-box-default btn-block text-xs-left" name="button">All Files <span class="octicon octicon-triangle-down pull-xs-right"></span></button>
+    </div>
+  </form>
+</div>
+
+<div class="text-xs-center p-a-1">
+  <button {{action "cancel"}} type="button" class="btn btn-sm btn-box-default" name="button">Cancel</button>
+  <button type="button" class="btn btn-sm btn-box-default" name="button">Upload</button>
+</div>

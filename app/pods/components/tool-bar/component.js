@@ -6,7 +6,18 @@ export default Ember.Component.extend({
   ariaRole: 'toolbar',
   label: 'Toolbar with button groups',
 
+  selectedFiles: [],
+
   actions: {
+    toggleDialog() {
+      this.toggleProperty('showDialog');
+    },
+
+    overlayClicked() {
+      this.send('toggleDialog');
+      this.get('selectedFiles').clear();
+    },
+
     openFilePicker() {
       // Simulate click on file input field
       document.querySelector("#file").click();
@@ -20,7 +31,11 @@ export default Ember.Component.extend({
     handleFiles(evt) {
       let files = evt.target.files;
       if (files.length > 0) {
-        console.log("What do we do now?");
+        let selected = this.get('selectedFiles');
+        for (var i = 0; i < files.length; i++) {
+          selected.pushObject(files[i]);
+        }
+        this.send('toggleDialog');
       }
     }
   }

@@ -1,9 +1,13 @@
 @import 'variables';
 @import 'bootstrap';
 
+@import 'base';
+
 @import 'components/header';
 @import 'components/buttons';
 @import 'components/responsive';
 @import 'components/list';
 @import 'components/modules';
 @import 'components/navbar';
+@import 'components/popover';
+@import 'components/modal';

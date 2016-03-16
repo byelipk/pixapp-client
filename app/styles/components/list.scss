@@ -37,3 +37,25 @@
     }
   }
 }
+
+.file-list {
+  .media {
+    border-top: 1px solid #E9E9E9;
+    margin: 0;
+    padding: 1em;
+    cursor: pointer;
+    font-size: 0.9em;
+    a {
+      color: #1B7DB3 !important;
+    }
+    &:first-child {
+      border-top: 0;
+    }
+    &:last-child {
+      border-bottom: 1px solid #E9E9E9;
+    }
+    &:hover {
+      background: #fafafa;
+    }
+  }
+}
