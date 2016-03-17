@@ -13,12 +13,11 @@
 
     <div class="bubble z-depth-1">
       <header class="bubble-header">
-        How are you?
+        <strong>Folders</strong>
       </header>
-      <section class="bubble-body">
-        Oh yeah
+      <section class="bubble-body bubble-folder">
+        {{async-tree model=directories.firstObject}}
       </section>
     </div>
-
   {{/liquid-tether}}
 {{/if}}

@@ -2,10 +2,20 @@
   border-radius: 5px;
   border: 1px solid #BDBDBD;
   background-color: #FFF;
+  max-width: 300px;
+  font-size: 0.9em;
   .bubble-header {
     padding: 0.8em;
   }
   .bubble-body {
     padding: 0.8em;
+  }
+  .bubble-folder {
+    .media {
+      cursor: pointer;
+    }
+    .media .gets-hover {
+      background-color: #fafafa;
+    }
   }
 }

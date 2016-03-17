@@ -1,4 +1,4 @@
-{{folder-breadcrumb}}
+{{folder-breadcrumb directories=model.directories}}
 
 <div class="container">
   <div class="row">
@@ -6,10 +6,11 @@
       {{tool-bar}}
 
       <ul class="media-list asset-list">
-        {{#each model as |p|}}
+        {{#each model.pictures as |p|}}
           {{asset-list-item p=p}}
         {{/each}}
       </ul>
+
     </div>
 
     <div class="col-sm-12 col-md-3">

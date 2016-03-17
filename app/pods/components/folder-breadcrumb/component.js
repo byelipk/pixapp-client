@@ -7,6 +7,10 @@ export default Ember.Component.extend({
   actions: {
     togglePopover() {
       this.toggleProperty('showPopover');
+    },
+
+    toggleNode(node) {
+      console.log(`Toggle: ${node.get('text')}`);
     }
   }
 });
