@@ -38,7 +38,9 @@
     overlayClass="modal-backdrop"
     on-overlay-click="overlayClicked"}}
 
-      {{modal-upload-form selectedFiles=selectedFiles}}
+      {{modal-upload-form
+        selectedFiles=selectedFiles
+        on-upload-complete="toggleDialog"}}
 
   {{/liquid-tether}}
 {{/if}}

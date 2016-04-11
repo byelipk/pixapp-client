@@ -3,7 +3,7 @@
 </div>
 
 <div class="modal-body">
-  <form enctype="multipart/form-data">
+  <form id="upload" enctype="multipart/form-data">
     <strong>Selected Files:</strong>
     <div class="file-payload m-b-1">
       <ul class="media-list file-list">
@@ -42,5 +42,5 @@
 
 <div class="text-xs-center p-a-1">
   <button {{action "cancel"}} type="button" class="btn btn-sm btn-box-default" name="button">Cancel</button>
-  <button type="button" class="btn btn-sm btn-box-default" name="button">Upload</button>
+  <button {{action "upload"}} type="button" class="btn btn-sm btn-box-default" name="button">Upload</button>
 </div>
