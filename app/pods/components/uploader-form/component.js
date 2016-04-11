@@ -9,7 +9,6 @@ export default Ember.Component.extend({
 
   actions: {
     upload() {
-      // this.sendXhr();
       this.sendAjax();
     },
 
@@ -49,8 +48,8 @@ export default Ember.Component.extend({
       this.get('ajax').request("/api/pictures", {
         data: fd,
         method: 'POST',
-        processData: false,
-        contentType: false
+        processData: false, // tell jQuery not to process the data
+        contentType: false  // tell jQuery not to set contentType
       })
       .then((picture) => {
         this.get('store').pushPayload(picture);
@@ -58,27 +57,6 @@ export default Ember.Component.extend({
       .catch((err) => {
         console.log(err);
       });
-    }
-  },
-
-  sendXhr() {
-    let f  = this.get('selectedFile');
-    let form = document.querySelector("#upload-form");
-
-    if (f) {
-      let uri = "/api/pictures";
-      let fd  = new FormData(form);
-      let xhr = new XMLHttpRequest();
-
-      xhr.open('POST', uri, true);
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4 && xhr.status === 201) {
-          console.log(xhr);
-        }
-      };
-
-      // fd.append('picture', file);
-      xhr.send(fd);
     }
   }
 });
