@@ -19,9 +19,7 @@ export default Ember.Controller.extend({
       },
 
       received(data) {
-        notify.success(data['body'], {
-          closeAfter: 10000
-        });
+        notify.success(data['body']);
       },
 
       disconnected() {
