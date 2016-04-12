@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import DS from 'ember-data';
 
 
@@ -8,7 +7,7 @@ import DS from 'ember-data';
 // JSONAPI document, we can fix it with these
 // two hooks:
 
-let underscore = Ember.String.underscore;
+// let underscore = Ember.String.underscore;
 
 export default DS.JSONAPISerializer.extend({
   // keyForAttribute: function(attr) {

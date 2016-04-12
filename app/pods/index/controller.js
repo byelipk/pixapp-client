@@ -12,6 +12,8 @@ export default Ember.Controller.extend({
     let notify     = this.get('notify');
     let consumer   = this.get('cableConsumer').retrieve();
 
+    Ember.debug(consumer);
+    
     consumer.subscriptions.create({
       channel: "PicturesChannel",
       room: ""
@@ -34,6 +36,6 @@ export default Ember.Controller.extend({
       disconnected() {
         Ember.debug("PicturesChannel#disconnected");
       }
-    })
+    });
   })
 });
