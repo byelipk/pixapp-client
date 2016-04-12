@@ -1,13 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  notify:       Ember.inject.service('notify'),
-  cableService: Ember.inject.service('cable'),
+  store:         Ember.inject.service('store'),
+  notify:        Ember.inject.service('notify'),
+  cableConsumer: Ember.inject.service('cable-consumer'),
 
   initCableService: Ember.on('init', function () {
     // Create a consumer
+    let store    = this.get('store');
     let notify   = this.get('notify');
-    let consumer = this.get('cableService').createConsumer("ws://localhost:4200/cable");
+    let consumer = this.get('cableConsumer').retrieve();
 
     // Create any number of subscriptions
     consumer.subscriptions.create({
@@ -15,7 +17,7 @@ export default Ember.Controller.extend({
       room: "Welcome"
     }, {
       connected() {
-        notify.info("You're connected via WebSockets!");
+        notify.info("You're connected to the Appearances Channel!");
       },
 
       received(data) {
