@@ -5,11 +5,19 @@
     <div class="col-sm-12 col-md-9">
       {{tool-bar}}
 
+      {{#if model.pictures.length}}
       <ul class="media-list asset-list">
         {{#each model.pictures as |p|}}
           {{asset-list-item p=p}}
         {{/each}}
       </ul>
+      {{else}}
+        <div class="m-t-3 text-sm-center">
+          <img src="assets/images/blankslate-small.png" alt="Blankslate" />
+          <h1>Welcome to Clone Box, Pat!</h1>
+          <p>Your place to store, access, and collaborate on all your files.</p>
+        </div>
+      {{/if}}
 
     </div>
 
