@@ -1,13 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  store:         Ember.inject.service('store'),
   notify:        Ember.inject.service('notify'),
   cableConsumer: Ember.inject.service('cable-consumer'),
 
   initCableService: Ember.on('init', function () {
     // Create a consumer
-    let store    = this.get('store');
     let notify   = this.get('notify');
     let consumer = this.get('cableConsumer').retrieve();
 
@@ -21,7 +19,7 @@ export default Ember.Controller.extend({
       },
 
       received(data) {
-        notify.success(data['body']);
+        Ember.debug(data);
       },
 
       disconnected() {
