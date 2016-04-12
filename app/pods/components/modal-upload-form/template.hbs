@@ -40,7 +40,17 @@
   </form>
 </div>
 
-<div class="text-xs-center p-a-1">
-  <button {{action "cancel"}} type="button" class="btn btn-sm btn-box-default" name="button">Cancel</button>
-  <button {{action "upload"}} type="button" class="btn btn-sm btn-box-default" name="button">Upload</button>
-</div>
+{{#if isSaving}}
+  <div class="sk-wave">
+    <div class="sk-rect sk-rect1"></div>
+    <div class="sk-rect sk-rect2"></div>
+    <div class="sk-rect sk-rect3"></div>
+    <div class="sk-rect sk-rect4"></div>
+    <div class="sk-rect sk-rect5"></div>
+  </div>
+{{else}}
+  <div class="text-xs-center p-a-1">
+    <button {{action "cancel"}} type="button" class="btn btn-sm btn-box-default" name="button">Cancel</button>
+    <button {{action "upload"}} type="button" class="btn btn-sm btn-box-default" name="button">Upload</button>
+  </div>
+{{/if}}

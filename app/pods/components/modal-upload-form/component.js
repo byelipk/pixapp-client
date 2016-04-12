@@ -18,6 +18,8 @@ export default Ember.Component.extend({
       let files = this.get('selectedFiles');
 
       if (fd && files.length > 0) {
+        this.toggleProperty('isSaving');
+
         for (var i = 0; i < files.length; i++) {
           fd.append('picture[image]', files[i]);
         }
@@ -35,6 +37,9 @@ export default Ember.Component.extend({
         })
         .catch((err) => {
           console.log(err);
+        })
+        .finally(() => {
+          this.toggleProperty('isSaving');
         });
       }
     }

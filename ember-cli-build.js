@@ -7,7 +7,8 @@ module.exports = function(defaults) {
     // Add options here
     sassOptions: {
       includePaths: [
-        "bower_components/bootstrap/scss"
+        "bower_components/bootstrap/scss",
+        "bower_components/Spinkit/scss"
       ]
     }
   });
@@ -39,6 +40,8 @@ module.exports = function(defaults) {
     destDir: 'assets'
   });
 
+  // TODO
+  // We don't need to import the whole bootstrap js library.
   app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
   return app.toTree();

@@ -11,3 +11,7 @@
 @import 'components/navbar';
 @import 'components/bubble';
 @import 'components/modal';
+
+// SpinKit CSS Spinners
+$spinkit-spinner-color: #23a1e6 !default;
+@import 'spinners/3-wave';
