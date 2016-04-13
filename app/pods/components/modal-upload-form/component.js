@@ -1,11 +1,17 @@
 import Ember from 'ember';
 
+const { computed } = Ember;
+
 export default Ember.Component.extend({
   store:  Ember.inject.service('store'),
   ajax:   Ember.inject.service('ajax'),
   notify: Ember.inject.service('notify'),
 
   classNames: ['modal-content', 'modal-upload-form'],
+
+  uploadBtnDisabled: computed('selectedFiles.[]', function() {
+    return this.get('selectedFiles').length < 1;
+  }),
 
   actions: {
 

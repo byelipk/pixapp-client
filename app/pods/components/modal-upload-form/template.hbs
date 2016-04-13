@@ -53,7 +53,7 @@
   </p>
 {{else}}
   <div class="text-xs-center p-a-1">
-    <button {{action "upload"}} type="button" class="btn btn-sm btn-box-default" name="button">Upload</button>
+    <button {{action "upload"}} type="button" class="btn btn-sm btn-box-default" name="button" disabled={{uploadBtnDisabled}}>Upload</button>
     <button {{action "cancel"}} type="button" class="btn btn-sm btn-box-default" name="button">Cancel</button>
   </div>
 {{/if}}
