@@ -27,7 +27,11 @@
             <span class="octicon octicon-plus text-muted"></span>
           </div>
           <div class="media-body">
-            <a href="#">Select file</a>
+            <a {{action "openFilePicker"}} href="#">Select file</a>
+
+            <div class="input-wrapper">
+              <input type="file" id="file" name="picture[image]" style="display:none" multiple onchange={{action 'addFiles'}}>
+            </div>
           </div>
         </li>
       </ul>

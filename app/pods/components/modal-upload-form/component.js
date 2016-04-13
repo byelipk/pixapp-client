@@ -15,6 +15,20 @@ export default Ember.Component.extend({
 
   actions: {
 
+    openFilePicker() {
+      document.querySelector("#file").click();
+    },
+
+    addFiles(evt) {
+      let files = evt.target.files;
+      if (files.length > 0) {
+        let selected = this.get('selectedFiles');
+        for (var i = 0; i < files.length; i++) {
+          selected.pushObject(files[i]);
+        }
+      }
+    },
+
     cancel() {
       document.querySelector(".modal-backdrop").click();
     },
@@ -69,5 +83,6 @@ export default Ember.Component.extend({
     removeFile(file) {
       this.get('selectedFiles').removeObject(file);
     }
+
   }
 });
