@@ -58,6 +58,10 @@ export default Ember.Component.extend({
           this.toggleProperty('isSaving');
         });
       }
+    },
+
+    removeFile(file) {
+      this.get('selectedFiles').removeObject(file);
     }
   }
 });

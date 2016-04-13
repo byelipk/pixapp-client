@@ -9,7 +9,7 @@
       <ul class="media-list file-list">
         {{#each selectedFiles as |f|}}
         <li class="media">
-          <span class="pull-xs-right text-muted">&times;</span>
+          <span {{action "removeFile" f}} class="pull-xs-right text-muted">&times;</span>
           <div class="media-left">
             <span class="octicon octicon-file-text text-muted"></span>
           </div>
