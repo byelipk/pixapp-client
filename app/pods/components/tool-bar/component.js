@@ -8,24 +8,25 @@ export default Ember.Component.extend({
 
   selectedFiles: [],
 
-  actions: {
-    toggleDialog() {
-      this.toggleProperty('showDialog');
-    },
+  showUploadDialog: false,
 
-    overlayClicked() {
-      this.send('toggleDialog');
-      this.get('selectedFiles').clear();
-    },
+  actions: {
 
     openFilePicker() {
-      // Simulate click on file input field
       document.querySelector("#file").click();
     },
 
     openDirectoryPicker() {
-      // Simulate click on file input field
       document.querySelector("#directory").click();
+    },
+
+    toggleUploadDialog() {
+      this.toggleProperty('showUploadDialog');
+    },
+
+    onUploadComplete() {
+      this.send('toggleUploadDialog');
+      this.get('selectedFiles').clear();
     },
 
     handleFiles(evt) {
@@ -35,7 +36,7 @@ export default Ember.Component.extend({
         for (var i = 0; i < files.length; i++) {
           selected.pushObject(files[i]);
         }
-        this.send('toggleDialog');
+        this.send('toggleUploadDialog');
       }
     }
   }

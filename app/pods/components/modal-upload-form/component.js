@@ -8,30 +8,46 @@ export default Ember.Component.extend({
   classNames: ['modal-content', 'modal-upload-form'],
 
   actions: {
+
     cancel() {
       document.querySelector(".modal-backdrop").click();
     },
 
+    // NOTE
+    // To learn about how to handle file objects
+    // in the browser see these articles:
+    //
+    // See: https://developer.mozilla.org/en-US/docs/Web/API/FileList
+    // See: https://developer.mozilla.org/en-US/docs/Web/API/File
+    // See: https://developer.mozilla.org/en-US/docs/Using_files_from_web_applications
+    //
     upload() {
       let form  = document.querySelector("#upload");
-      let fd    = new FormData(form);
       let files = this.get('selectedFiles');
 
-      if (fd && files.length > 0) {
+      if (form && files.length > 0) {
         this.toggleProperty('isSaving');
 
+        let promises = [];
+
         for (var i = 0; i < files.length; i++) {
-          fd.append('picture[image]', files[i]);
+          let fd = new FormData(form);
+              fd.append('picture[image]', files[i]);
+
+          let promise = this.get('ajax').request("/api/pictures", {
+            data: fd,
+            method: 'POST',
+            processData: false, // tell jQuery not to process the data
+            contentType: false  // tell jQuery not to set contentType
+          });
+
+          promises.push(promise);
         }
 
-        this.get('ajax').request("/api/pictures", {
-          data: fd,
-          method: 'POST',
-          processData: false, // tell jQuery not to process the data
-          contentType: false  // tell jQuery not to set contentType
-        })
-        .then((picture) => {
-          this.get('store').pushPayload(picture);
+        Ember.RSVP.all(promises).then((pictures) => {
+          pictures.forEach((picture) => {
+            this.get('store').pushPayload(picture);
+          });
           this.get('notify').success('Upload complete!');
           this.sendAction('on-upload-complete');
         })

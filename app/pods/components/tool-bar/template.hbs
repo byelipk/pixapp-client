@@ -1,3 +1,4 @@
+{{! Primary upload button }}
 <div class="btn-group" role="group" aria-label="Upload">
   <button type="button" class="btn btn-box dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="octicon octicon-cloud-upload"></span> Upload</button>
   <div class="dropdown-menu">
@@ -9,12 +10,15 @@
     </div>
   </div>
 </div>
+
 <div class="btn-group" role="group" aria-label="First group">
   <button type="button" class="btn btn-box-default"><span class="octicon octicon-plus"></span> New</button>
 </div>
+
 <div class="btn-group" role="group" aria-label="First group">
   <button id="note" type="button" class="btn btn-box-default"><span class="octicon octicon-pencil"></span></button>
 </div>
+
 <div class="btn-group pull-xs-right" role="group" aria-label="Third group">
   <div class="checkbox">
     <label class="m-t-xs">
@@ -22,11 +26,12 @@
     </label>
   </div>
 </div>
+
 <div class="btn-group pull-xs-right" role="group" aria-label="Third group">
   <button type="button" class="btn btn-box-default"><span class="octicon octicon-unfold"></span></button>
 </div>
 
-{{#if showDialog}}
+{{#if showUploadDialog}}
   {{#liquid-tether
     to="modal-dialog"
     target="document.body"
@@ -36,11 +41,11 @@
     offset="-120px -20px"
     tetherClass="modal-dialog"
     overlayClass="modal-backdrop"
-    on-overlay-click="overlayClicked"}}
+    on-overlay-click="onUploadComplete"}}
 
       {{modal-upload-form
         selectedFiles=selectedFiles
-        on-upload-complete="toggleDialog"}}
+        on-upload-complete="onUploadComplete"}}
 
   {{/liquid-tether}}
 {{/if}}
