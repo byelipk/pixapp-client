@@ -1,12 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-9">
-      {{tool-bar}}
+      {{tool-bar selectedFiles=selectedFiles}}
 
       {{#if model.length}}
         <ul class="media-list asset-list">
           {{#each model as |picture|}}
-            {{picture-item p=picture}}
+            {{picture-item
+              picture=picture
+              toggle-toolbar="toggleToolbar" }}
           {{/each}}
         </ul>
       {{else}}

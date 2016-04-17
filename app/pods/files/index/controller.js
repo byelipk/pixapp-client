@@ -35,5 +35,17 @@ export default Ember.Controller.extend({
         Ember.debug("PicturesChannel#disconnected");
       }
     });
-  })
+  }),
+
+  selectedFiles: [],
+
+  actions: {
+    toggleToolbar(status, picture) {
+      if (status) {
+        this.get('selectedFiles').pushObject(picture);
+      } else {
+        this.get('selectedFiles').removeObject(picture);
+      }
+    }
+  }
 });

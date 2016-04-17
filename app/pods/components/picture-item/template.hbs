@@ -1,5 +1,5 @@
 <div class="media-left">
-  <img class="media-object" src={{p.thumbUrl}} alt={{p.filename}}>
+  <img class="media-object" src={{picture.thumbUrl}} alt={{picture.filename}}>
 </div>
 <div class="media-body">
   <ul class="list-linline pull-xs-right action-list">
@@ -10,16 +10,16 @@
     <li class="list-inline-item">
       <div class="checkbox">
         <label class="m-t-xs">
-          <input type="checkbox">
+          {{one-way-checkbox isChecked update=(action 'toggleIsChecked')}}
         </label>
       </div>
     </li>
   </ul>
   <div class="media-heading">
-    <b>{{p.filename}}</b>
+    <b>{{picture.filename}}</b>
   </div>
   <ul class="list-linline item-meta-list p-l-0">
-    <li class="list-inline-item">Uploaded {{moment-from-now p.createdAt}} by <a href="#">{{p.ownerName}}</a></li>
-    <li class="list-inline-item">{{p.fileSize.humanReadable}}</li>
+    <li class="list-inline-item">Uploaded {{moment-from-now picture.createdAt}} by <a href="#">{{picture.ownerName}}</a></li>
+    <li class="list-inline-item">{{picture.fileSize.humanReadable}}</li>
   </ul>
 </div>

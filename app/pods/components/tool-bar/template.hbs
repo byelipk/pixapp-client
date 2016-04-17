@@ -1,23 +1,48 @@
-{{! Primary upload button }}
-<div class="btn-group" role="group" aria-label="Upload">
-  <button type="button" class="btn btn-box dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="octicon octicon-cloud-upload"></span> Upload</button>
-  <div class="dropdown-menu">
-    <a {{action "openFilePicker"}} class="dropdown-item" href="#"><span class="octicon octicon-file-text"></span> Files</a>
-    <a {{action "openDirectoryPicker"}} class="dropdown-item" href="#"><span class="octicon octicon-file-submodule"></span> Folders</a>
-    <div class="input-wrapper">
-      <input type="file" id="file" name="picture[image]" style="display:none" multiple onchange={{action 'handleFiles'}}>
-      <input type="file" id="directory" name="picture[image]" style="display:none" multiple onchange={{action 'handleFiles'}} webkitdirectory="true">
+{{#if selectedFiles.length}}
+  <div class="btn-group" role="group" aria-label="First group">
+    <button type="button" class="btn btn-box-default"><span class="octicon octicon-arrow-down"></span></button>
+  </div>
+
+  <div class="btn-group" role="group" aria-label="First group">
+    <button id="note" type="button" class="btn btn-box-default"><span class="octicon octicon-mail"></span></button>
+  </div>
+
+  <div class="btn-group" role="group" aria-label="First group">
+    <button id="note" type="button" class="btn btn-box-default"><span class="octicon octicon-tag"></span></button>
+  </div>
+
+  <div class="btn-group" role="group" aria-label="First group">
+    <button id="note" type="button" class="btn btn-box-default"><span class="octicon octicon-file-symlink-directory"></span></button>
+  </div>
+
+  <div class="btn-group" role="group" aria-label="First group">
+    <button id="note" type="button" class="btn btn-box-default"><span class="octicon octicon-trashcan"></span></button>
+  </div>
+
+  <div class="btn-group" role="group" aria-label="First group">
+    <button id="note" type="button" class="btn btn-box-default"><span class="octicon octicon-repo-pull"></span></button>
+  </div>
+{{else}}
+  <div class="btn-group" role="group" aria-label="Upload">
+    <button type="button" class="btn btn-box dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="octicon octicon-cloud-upload"></span> Upload</button>
+    <div class="dropdown-menu">
+      <a {{action "openFilePicker"}} class="dropdown-item" href="#"><span class="octicon octicon-file-text"></span> Files</a>
+      <a {{action "openDirectoryPicker"}} class="dropdown-item" href="#"><span class="octicon octicon-file-submodule"></span> Folders</a>
+      <div class="input-wrapper">
+        <input type="file" id="file" name="picture[image]" style="display:none" multiple onchange={{action 'handleFiles'}}>
+        <input type="file" id="directory" name="picture[image]" style="display:none" multiple onchange={{action 'handleFiles'}} webkitdirectory="true">
+      </div>
     </div>
   </div>
-</div>
 
-<div class="btn-group" role="group" aria-label="First group">
-  <button type="button" class="btn btn-box-default"><span class="octicon octicon-plus"></span> New</button>
-</div>
+  <div class="btn-group" role="group" aria-label="First group">
+    <button type="button" class="btn btn-box-default"><span class="octicon octicon-plus"></span> New</button>
+  </div>
 
-<div class="btn-group" role="group" aria-label="First group">
-  <button id="note" type="button" class="btn btn-box-default"><span class="octicon octicon-pencil"></span></button>
-</div>
+  <div class="btn-group" role="group" aria-label="First group">
+    <button id="note" type="button" class="btn btn-box-default"><span class="octicon octicon-pencil"></span></button>
+  </div>
+{{/if}}
 
 <div class="btn-group pull-xs-right" role="group" aria-label="Third group">
   <div class="checkbox">
