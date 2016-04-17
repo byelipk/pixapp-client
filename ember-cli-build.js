@@ -28,8 +28,8 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
 
   // Bootstrap
-  // We don't need to import the whole bootstrap js library.
-  // app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+  // TODO: We don't need to import the whole bootstrap js library.
+  app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
   // Octicons
   app.import('bower_components/octicons/octicons/octicons.css');
