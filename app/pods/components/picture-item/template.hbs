@@ -19,7 +19,7 @@
     <b>{{p.filename}}</b>
   </div>
   <ul class="list-linline item-meta-list p-l-0">
-    <li class="list-inline-item">Uploaded today by <a href="#">{{p.ownerName}}</a></li>
+    <li class="list-inline-item">Uploaded {{moment-from-now p.createdAt}} by <a href="#">{{p.ownerName}}</a></li>
     <li class="list-inline-item">{{p.fileSize.humanReadable}}</li>
   </ul>
 </div>

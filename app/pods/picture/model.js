@@ -9,5 +9,6 @@ export default DS.Model.extend({
   originalUrl: attr('string'),
   mediumUrl:   attr('string'),
   thumbUrl:    attr('string'),
-  ownerName:   attr('string')
+  ownerName:   attr('string'),
+  createdAt:   attr('date')
 });
