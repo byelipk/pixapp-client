@@ -1,10 +1,10 @@
 <div class="container">
-  <a {{action "togglePopover"}} class="subnav-control" href="#">
-    All Files <span id="folder-tree" class="octicon octicon-triangle-down"></span>
+  <a class="subnav-control" href={{href-to 'files'}}>
+    All Files <span {{action "toggleFolderTree"}} id="folder-tree" class="octicon octicon-triangle-down"></span>
   </a>
 </div>
 
-{{#if showPopover}}
+{{#if showingFolderTree}}
   {{#liquid-tether
       to="folder-tree"
       target="#folder-tree"
@@ -12,12 +12,16 @@
       targetAttachment="bottom right"}}
 
     <div class="bubble z-depth-1">
-      <header class="bubble-header">
+      <b>TODO:</b>
+      <p>
+        Put stuff here...
+      </p>
+      {{!-- <header class="bubble-header">
         <strong>Folders</strong>
       </header>
       <section class="bubble-body bubble-folder">
         {{async-tree model=directories.firstObject}}
-      </section>
+      </section> --}}
     </div>
   {{/liquid-tether}}
 {{/if}}

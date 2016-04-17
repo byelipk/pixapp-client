@@ -5,8 +5,8 @@ export default Ember.Component.extend({
   classNames: ['navbar', 'subnav-box', 'p-t-1', 'p-b-1'],
 
   actions: {
-    togglePopover() {
-      this.toggleProperty('showPopover');
+    toggleFolderTree() {
+      this.toggleProperty('showingFolderTree');
     },
 
     toggleNode(node) {

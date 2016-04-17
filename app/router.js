@@ -6,7 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('files');
+  this.route('files', function() {
+    
+  });
   this.route('updates');
   this.route('notifications');
 });

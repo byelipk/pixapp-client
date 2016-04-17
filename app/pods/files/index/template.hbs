@@ -1,16 +1,14 @@
-{{folder-breadcrumb directories=model.directories}}
-
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-9">
       {{tool-bar}}
 
-      {{#if model.pictures.length}}
-      <ul class="media-list asset-list">
-        {{#each model.pictures as |p|}}
-          {{asset-list-item p=p}}
-        {{/each}}
-      </ul>
+      {{#if model.length}}
+        <ul class="media-list asset-list">
+          {{#each model as |picture|}}
+            {{picture-item p=picture}}
+          {{/each}}
+        </ul>
       {{else}}
         <div class="m-t-3 text-sm-center">
           <img src="assets/images/blankslate-small.png" alt="Blankslate" />
@@ -22,7 +20,6 @@
     </div>
 
     <div class="col-sm-12 col-md-3">
-
       <aside class="module favorites-module">
         <h5 class="text-muted">Favorites</h5>
         <hr>

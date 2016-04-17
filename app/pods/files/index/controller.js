@@ -12,8 +12,6 @@ export default Ember.Controller.extend({
     let notify     = this.get('notify');
     let consumer   = this.get('cableConsumer').retrieve();
 
-    Ember.debug(consumer);
-    
     consumer.subscriptions.create({
       channel: "PicturesChannel",
       room: ""
@@ -27,7 +25,7 @@ export default Ember.Controller.extend({
           let record = store.peekRecord(data["type"], data["id"]);
           if (record) {
             record.deleteRecord();
-            controller.get('model.pictures').removeObject(record);
+            controller.get('model').removeObject(record);
             notify.success("Picture deleted");
           }
         }
