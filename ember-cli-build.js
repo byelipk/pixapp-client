@@ -1,6 +1,7 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var Funnel   = require('broccoli-funnel');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
@@ -26,23 +27,20 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  app.import('bower_components/octicons/octicons/octicons.css');
-  app.import('bower_components/octicons/octicons/octicons.ttf', {
-    destDir: 'assets'
-  });
-  app.import('bower_components/octicons/octicons/octicons.eot', {
-    destDir: 'assets'
-  });
-  app.import('bower_components/octicons/octicons/octicons.woff', {
-    destDir: 'assets'
-  });
-  app.import('bower_components/octicons/octicons/octicons.svg', {
-    destDir: 'assets'
-  });
-
-  // TODO
+  // Bootstrap
   // We don't need to import the whole bootstrap js library.
-  app.import('bower_components/bootstrap/dist/js/bootstrap.js');
+  // app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
-  return app.toTree();
+  // Octicons
+  app.import('bower_components/octicons/octicons/octicons.css');
+
+  var octiconFiles = new Funnel('bower_components/octicons/octicons', {
+     srcDir: '/',
+     include: ['*.woff', '*.ttf', '*.svg', '*.eot'],
+     destDir: 'assets'
+  });
+
+  // Providing additional trees to the `toTree` method will result in those
+  // trees being merged in the final output.
+  return app.toTree(octiconFiles);
 };
