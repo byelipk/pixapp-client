@@ -23,11 +23,15 @@ export default Ember.Controller.extend({
       received(data) {
         if (data["action"] === "DELETE") {
           let record = store.peekRecord(data["type"], data["id"]);
-          if (record) {
+
+          if (!record) { return; }
+
+          if (record.get("isDeleted") === false) {
             record.deleteRecord();
-            controller.get('model').removeObject(record);
-            notify.success("Picture deleted");
           }
+
+          controller.get('model').removeObject(record);
+          notify.success("Picture deleted");
         }
       },
 
