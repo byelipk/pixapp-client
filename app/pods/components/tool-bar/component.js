@@ -38,6 +38,20 @@ export default Ember.Component.extend({
         }
         this.send('toggleUploadDialog');
       }
+    },
+
+    trash() {
+      let files    = this.get('selectedFiles');
+      let promises = files.map((file) => {
+        file.destroyRecord();
+      });
+
+      Ember.RSVP.all(promises).then(() => {
+        files.clear();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     }
   }
 });
